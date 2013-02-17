@@ -23,7 +23,7 @@
 	// Replace special chars to be HTML-Code
 	function stringToHTML($string)
 	{
-		$array_search = array('Ã©', 'Ã¨', 'Ã«', 'Ãª', 'Ã ', 'Ã¤', 'Ã„', 'Ã¢', 'Ã¹', 'Ã¼', 'Ãœ', 'Ã»', 'Ã¶', 'Ã–', 'Ã´', 'Ã¯', 'Ã®');
+		$array_search = array('é', 'è', 'ë', 'ê', 'à', 'ä', 'Ä', 'â', 'ù', 'ü', 'Ü', 'û', 'ö', 'Ö', 'ô', 'ï', 'î');
 		$array_replace = array('&eacute;', '&egrave;',	'&euml;', '&ecirc;', '&agrave;', '&auml;', '&Auml;', '&acirc;', '&ugrave;', '&uuml;', '&Uuml;', '&ucirc;', '&ouml;', '&Ouml;', '&ocirc;', '&iuml;', '&icirc;');
 		$string_return = str_replace($array_search, $array_replace, $string);
 		return $string_return;

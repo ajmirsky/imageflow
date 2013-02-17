@@ -1456,7 +1456,6 @@ domReadyEvent.init();
 
 
 /* Create ImageFlow instances when the DOM structure has been loaded */
-
 domReady(function()
 {
 	var instanceOne = new ImageFlow();
