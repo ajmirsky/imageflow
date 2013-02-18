@@ -23,7 +23,7 @@
 	// Replace special chars to be HTML-Code
 	function stringToHTML($string)
 	{
-		$array_search = array('é', 'è', 'ë', 'ê', 'à', 'ä', 'Ä', 'â', 'ù', 'ü', 'Ü', 'û', 'ö', 'Ö', 'ô', 'ï', 'î');
+		$array_search = array('\E9', '\E8', '\EB', '\EA', '\E0', '\E4', '\C4', '\E2', '\F9', '\FC', '\DC', '\FB', '\F6', '\D6', '\F4', '\EF', '\EE');
 		$array_replace = array('&eacute;', '&egrave;',	'&euml;', '&ecirc;', '&agrave;', '&auml;', '&Auml;', '&acirc;', '&ugrave;', '&uuml;', '&Uuml;', '&ucirc;', '&ouml;', '&Ouml;', '&ocirc;', '&iuml;', '&icirc;');
 		$string_return = str_replace($array_search, $array_replace, $string);
 		return $string_return;
@@ -37,7 +37,7 @@
 	}
 	
 	//	GD check
-	if (extension_loaded('gd') == false && !dl('gd.so'))
+	if (extension_loaded('gd') == false)
 	{
 		echo 'You are missing the GD extension for PHP, sorry but I cannot continue.';
 		exit();

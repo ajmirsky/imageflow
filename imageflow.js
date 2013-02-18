@@ -52,9 +52,11 @@ function ImageFlow ()
 		imageScaling:       true,           /* Toggle image scaling */ 
 		imagesHeight:       0.67,           /* Height of the images div container in percent */
 		imagesM:            1.0,            /* Multiplicator for all images in percent */
+                onChangeStart:            function(from, to) { },
+                onChangeStop:              function(from, to) { },
 		onClick:            function() { document.location = this.url; },   /* Onclick behaviour */
 		opacity:            false,          /* Toggle image opacity */
-		opacityArray:       [10,8,6,4,2],   /* Image opacity (range: 0 to 10) first value is for the focussed image */
+		opacityArray:       [10,8,6,4,2],   /* Image opacity (range: 0 to 10) consofirst value is for the focussed image */
 		percentLandscape:   118,            /* Scale landscape format */
 		percentOther:       100,            /* Scale portrait and square format */
 		preloadImages:      true,           /* Toggles loading bar (false: requires img attributes height and width) */
@@ -657,6 +659,11 @@ function ImageFlow ()
 	/* Initializes image gliding animation */
 	this.glideTo = function(imageID)
 	{
+            var from = my.imagesDiv.childNodes[my.imageID].getAttribute('id'),
+                to = my.imagesDiv.childNodes[imageID].getAttribute('id');
+                
+            my.onChangeStart(from, to);
+            
 		/* Check for jumppoints */
 		var jumpTarget, clonedImageID;
 		if(my.circular)
@@ -764,6 +771,8 @@ function ImageFlow ()
 			my.busy = true;
 			my.animate();
 		}
+                
+                my.onChangeStop(from, to);
 	};
 
 
